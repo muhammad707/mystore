@@ -3,7 +3,7 @@ const uuid = require('uuid')
 const fs = require('fs')
 
 const products = require('./data.json')
-const {getProducts, getProduct} = require('./contollers/productContoller')
+const {getProducts, getProduct, createProduct} = require('./contollers/productContoller')
 const app = express();
 
 app.use(express.urlencoded({extended: true})) 
@@ -17,29 +17,7 @@ app.get('/api/products/:id', getProduct)
 
 // create product
 
-app.post('/api/products', (req, res) => {
-  const {name, description, price} = req.body;
-
-  const product = {
-    id: uuid.v4(),
-    name, // name: name
-    description, // description: description
-    price // price: price
-  }
-
-  products.push(product)  
-  fs.writeFile('data.json', JSON.stringify(products, null, 2), 'utf-8', (err) => {
-    if (err) {
-      res.send({
-        message: 'Error in creation'
-      })
-    } else {
-      res.status(201).send({
-        message: 'Product has been created'
-      })
-    }
-  })
-})
+app.post('/api/products', createProduct)
 
 app.put('/api/products/:productId', (req, res) => {
   const {name, description, price} = req.body;

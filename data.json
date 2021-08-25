@@ -28,5 +28,11 @@
     "name": "Logitech G-Series Gaming Mouse",
     "description": "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
     "price": 49.99
+  },
+  {
+    "id": "ca4140e0-99b2-4195-9570-80cbdf2a7d7c",
+    "name": "Tesla",
+    "description": "Tesla Model 3",
+    "price": 40000
   }
 ]

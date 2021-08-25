@@ -21,7 +21,24 @@ async function getProduct(req, res) { // /api/product/1
   }
 }
 
+async function createProduct(req, res) {
+  const {name, description, price} = req.body
+  const product = {
+    name, 
+    description,
+    price
+  }
+
+  try {
+    const newProduct = await Product.createProduct(product)
+    res.send(newProduct)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   getProducts,
-  getProduct
+  getProduct,
+  createProduct
 }
