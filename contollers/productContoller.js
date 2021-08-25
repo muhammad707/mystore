@@ -37,8 +37,35 @@ async function createProduct(req, res) {
   }
 }
 
+async function updateProduct(req, res) {
+  const {id} = req.params
+  const {name, description, price} = req.body
+  try {
+    const product = await Product.getProduct(id)
+    if (!product) {
+      res.status(404).send({
+        message: 'Product not found'
+      })
+    } else {
+      const productData ={
+        name: name || product.name,
+        description: description || product.description,
+        price: price || product.price
+      }
+
+      const updatedProduct = await Product.updateProduct(id, productData)
+      res.send({
+        message: 'Product updated successfully'
+      })
+    }
+  } catch(error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   getProducts,
   getProduct,
-  createProduct
+  createProduct,
+  updateProduct
 }
