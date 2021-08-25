@@ -3,7 +3,7 @@ const uuid = require('uuid')
 const fs = require('fs')
 
 const products = require('./data.json')
-const {getProducts} = require('./contollers/productContoller')
+const {getProducts, getProduct} = require('./contollers/productContoller')
 const app = express();
 
 app.use(express.urlencoded({extended: true})) 
@@ -13,18 +13,7 @@ app.use(express.json({extended: true}))
 app.get('/api/products', getProducts)
 
 // Get product by id
-app.get('/api/products/:productId', (req, res) => {
-  const {productId} = req.params // const productId = req.params.productId
-  const product = products.find((p) => p.id === productId)
-
-  if (!product) {
-    res.send({
-      message: 'Product not found'
-    })
-  } else {
-    res.send(product)
-  }
-})
+app.get('/api/products/:id', getProduct)
 
 // create product
 

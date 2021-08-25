@@ -7,6 +7,14 @@ function findAll() {
   })
 }
 
+function findById(id) {
+  return new Promise((resolve, request) => {
+    const product = products.find((p) => p.id === id)
+    resolve(product)
+  })
+}
+
 module.exports = {
-  getProducts: findAll
+  getProducts: findAll,
+  getProduct: findById
 }
