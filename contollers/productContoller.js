@@ -5,7 +5,7 @@ async function getProducts(req, res) {
     const products = await Product.getProducts()
     res.send(products)
   } catch(error) {
-
+    console.log(error)
   }
 }
 
@@ -63,9 +63,29 @@ async function updateProduct(req, res) {
   }
 }
 
+async function deleteProduct(req, res) {
+  const {id} = req.params
+  try {
+    const product = await Product.getProduct(id)
+    if (!product) {
+      res.status(404).send({
+        message: 'Product not found'
+      })
+    } else {
+      await Product.deleteProduct(id)
+      res.send({
+        message: `Product ${id} removed`
+      })
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   getProducts,
   getProduct,
   createProduct,
-  updateProduct
+  updateProduct,
+  deleteProduct
 }
