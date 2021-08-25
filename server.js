@@ -3,15 +3,14 @@ const uuid = require('uuid')
 const fs = require('fs')
 
 const products = require('./data.json')
+const {getProducts} = require('./contollers/productContoller')
 const app = express();
 
 app.use(express.urlencoded({extended: true})) 
-app.use(express.json())
+app.use(express.json({extended: true}))
 
 // Get all products
-app.get('/api/products', (req, res) => {
-  res.send(products)
-})
+app.get('/api/products', getProducts)
 
 // Get product by id
 app.get('/api/products/:productId', (req, res) => {
