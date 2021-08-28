@@ -1,6 +1,7 @@
 const Product = require('../models/productModel')
 
 async function getProducts(req, res) {
+  console.log(req.user)
   try {
     const products = await Product.getProducts()
     res.send(products)
