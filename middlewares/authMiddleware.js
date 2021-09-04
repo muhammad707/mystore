@@ -11,9 +11,9 @@ function checkUser(req, res, next) {
         message: 'Auth error'
       })
     }
-    let decoded = jwt.verify(token, 'secret') // {userId: 1}
+    let decoded = jwt.verify(token, 'secret') // {userId: 1, username:'john', role: 1}
     req.user = decoded
-    res.setHeader('Last-Modified', new Date().toUTCString())
+    // res.setHeader('Last-Modified', new Date().toUTCString())
     next();
   } else {
     res.status(401).send({

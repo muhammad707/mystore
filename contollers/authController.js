@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-
+const bcrypt = require('bcryptjs')
 const User = require('../models/authModel')
 
 async function login(req, res) {
@@ -12,12 +12,12 @@ async function login(req, res) {
       res.status(400).send({ message: 'Login is incorrect' })
     }
     
-    const isMatch = password === user.password
+    const isMatch = await bcrypt.compare(password, user.password)
     if (!isMatch) {
       res.status(400).send({ message: 'Password is incorrect' })
     }
   
-    const token = jwt.sign({ userId: user.id, username: username }, secret, { expiresIn: '1d' })
+    const token = jwt.sign({ userId: user.id, username: username, role: user.role }, secret, { expiresIn: '1d' })
     res.status(200).send({
       token: token
     })

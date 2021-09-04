@@ -11,6 +11,30 @@
     "fullName": "Harry Potter",
     "age": 20,
     "username": "harry",
-    "password": "password123"
+    "password": "password123",
+    "role": 1
+  },
+  {
+    "id": "9884f0ea-612d-42b6-9ea7-4b29e4052075",
+    "fullName": "John Smith",
+    "age": 34,
+    "username": "john1",
+    "password": "$2a$12$wsLaAej/lglynKNjNfdfZO2mdekioth46H5Y3JCPNyI6jyFqQFiym",
+    "role": 2
+  },
+  {
+    "id": "236156b4-aebf-4091-9166-56df5aad3b8d",
+    "fullName": "John Smith",
+    "age": 34,
+    "username": "john12",
+    "password": "$2a$12$PATOzhmtyB6AzzRaSN7hieXqZjbaa8rdFm/RzKePreen1zGkvMGXC"
+  },
+  {
+    "id": "a36e99b2-ca73-4860-ab10-1eb7b8c56763",
+    "fullName": "John Smith",
+    "age": 34,
+    "username": "admin",
+    "password": "$2a$12$YAYG9RQCBtRbxAozuq.ut.HRXdDZ2irIUlOmlWJCw1.V1lTkyceBy",
+    "role": 1
   }
 ]
