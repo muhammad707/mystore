@@ -30,11 +30,19 @@
     "password": "$2a$12$PATOzhmtyB6AzzRaSN7hieXqZjbaa8rdFm/RzKePreen1zGkvMGXC"
   },
   {
-    "id": "a36e99b2-ca73-4860-ab10-1eb7b8c56763",
+    "id": "0fa3e34b-2dc2-48a7-858f-75b917c52048",
     "fullName": "John Smith",
     "age": 34,
     "username": "admin",
-    "password": "$2a$12$YAYG9RQCBtRbxAozuq.ut.HRXdDZ2irIUlOmlWJCw1.V1lTkyceBy",
-    "role": 1
+    "password": "$2a$12$K3gJCLOigkWwsPYNQwPLY.nfBkoiQIhK4wxmi5ocwAOmHQOPilpM6",
+    "role": "admin"
+  },
+  {
+    "id": "d4c822f8-4fa7-4b53-83b8-e59a5513ed37",
+    "fullName": "Ann Smith",
+    "age": 34,
+    "username": "seller",
+    "password": "$2a$12$TwBJ/w/z95y3k2jMbUF5o.qV0YOmvjqOtFVRs2y3BeWr80R7plq9W",
+    "role": ["seller", "admin"]
   }
 ]

@@ -16,7 +16,15 @@ async function createUser(user) {
   })
 }
 
+async function getUserById(id) {
+  return new Promise((resolve, reject) => {
+    const user = User.find(user => user.id === id)
+    resolve(user)
+  })
+}
+
 module.exports = {
   findUser,
-  createUser
+  createUser,
+  getUserById
 }
